@@ -9,7 +9,7 @@
     // Wait for device API libraries to load
     //
     document.addEventListener("deviceready", onDeviceReady, false);
-
+	var filentry;
     // device APIs are available
     //
     function onDeviceReady() {
@@ -21,7 +21,15 @@
     }
 
     function gotFileEntry(fileEntry) {
-        fileEntry.file(gotFile, fail);
+        filentry = fileEntry;
+        fileEntry.createWriter(gotFileWriter, fail);
+    }
+    
+    function gotFileWriter(writer) {
+        writer.onwriteend = function(evt) {
+            filentry.file(gotFile, fail);
+        };
+        writer.write("some sample text");
     }
 
     function gotFile(file){
@@ -38,7 +46,7 @@
     }
 
     function fail(error) {
-        //alert('file not existe :'+error.code+' / '+error.error);
+        alert('file not existe :'+error.code+' / '+error.error);
         
     }
 
