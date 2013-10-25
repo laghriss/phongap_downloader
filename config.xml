@@ -20,5 +20,5 @@
     <preference name="target-device"    value="universal" />
     <preference name="fullscreen"       value="false" />
 
-    <gap:plugin name="org.apache.ali.hello" />
+    <gap:plugin name="org.apache.cordova.file" />
 </widget>
