@@ -17,7 +17,7 @@
     }
 
     function gotFS(fileSystem) {
-        fileSystem.root.getFile("state.txt", {create: false, exclusive: false}, gotFileEntry, fail);
+        fileSystem.root.getFile("state.txt", {create: true, exclusive: false}, gotFileEntry, fail);
     }
 
     function gotFileEntry(fileEntry) {
@@ -38,7 +38,7 @@
     }
 
     function fail(error) {
-        alert('file not existe :'+error.code+' / '+error.error);
+        //alert('file not existe :'+error.code+' / '+error.error);
         
     }
 
