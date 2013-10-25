@@ -17,7 +17,7 @@
     }
 
     function gotFS(fileSystem) {
-        fileSystem.root.getFile("readm.txt", null, gotFileEntry, fail);
+        fileSystem.root.getFile("state.txt", {create: false, exclusive: false}, gotFileEntry, fail);
     }
 
     function gotFileEntry(fileEntry) {
@@ -25,17 +25,7 @@
     }
 
     function gotFile(file){
-        readDataUrl(file);
         readAsText(file);
-    }
-
-    function readDataUrl(file) {
-        var reader = new FileReader();
-        reader.onloadend = function(evt) {
-            alert("Read as data URL");
-            alert(evt.target.result);
-        };
-        reader.readAsDataURL(file);
     }
 
     function readAsText(file) {
@@ -48,7 +38,8 @@
     }
 
     function fail(error) {
-        alert('er'+error.code);
+        alert('file not existe :'+error.code+' / '+error.error);
+        
     }
 
     </script>
