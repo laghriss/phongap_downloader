@@ -6,6 +6,6 @@
     
 
     <gap:plugin name="org.apache.cordova.file" />
-    <gap:plugin name="org.apache.cordova.audiohandler" />
+    <gap:plugin name="org.apache.cordova.media" />
     <gap:plugin name="org.apache.cordova.file-transfer" />
 </widget>
